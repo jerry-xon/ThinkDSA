@@ -8,39 +8,32 @@ struct Node
 };
 
 // Push function to add an element to the stack
-void Push(struct Node **top_ref, int new_data)
+void Push(struct Node *top_ref, int new_data)
 {
 
     struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
 
-    // Check if memory allocation failed
-    if (new_node == NULL)
-    {
-        printf("\nStack overflow.");
-        return;
-    }
-
     new_node->data = new_data;
 
-    new_node->link = *top_ref;
+    new_node->link = top_ref;
 
-    *top_ref = new_node;
+    top_ref = new_node;
 
     printf("\nPushed %d to the stack.", new_data);
 }
 
 // Pop function to remove an element from the stack
-void Pop(struct Node **top_ref)
+void Pop(struct Node *top_ref)
 {
     // Check if stack is empty
-    if (*top_ref == NULL)
+    if (top_ref == NULL)
     {
         printf("\nStack is empty.");
         return;
     }
 
-    struct Node *temp = *top_ref;
-    *top_ref = (*top_ref)->link;
+    struct Node *temp = top_ref;
+    top_ref = top_ref->link;
 
     printf("\nPopped %d from the stack.", temp->data);
 

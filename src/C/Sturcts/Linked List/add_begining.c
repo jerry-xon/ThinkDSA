@@ -40,7 +40,7 @@ int main()
     int data = 3;
 
     head = add_beg(head,data);
-    current = head;
+    
 
 
 

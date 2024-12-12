@@ -24,6 +24,7 @@ void print_student_details(Student student)
 int main()
 {
     Student students[MAX_STUDENT];
+    
 
     for (int i = 0; i < MAX_STUDENT; i++)
     {
