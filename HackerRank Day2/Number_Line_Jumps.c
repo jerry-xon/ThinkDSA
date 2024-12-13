@@ -1,27 +1,22 @@
 #include <stdio.h>
-void kangaro(int K1, int v1, int K2, int v2)
+
+void kangaroo(int K1, int v1, int K2, int v2)
 {
-    int l2 = K2;
-    int l1 = K1;
-
-    do
+    if (v1 == v2) 
     {
-        l1 += v1;
-        l2 += v2;
-
-    } while (l1 != l2);
-
-    if (K2 > K1 && v2 > v1)
-    {
-        printf("NO");
+    
+        if (K1 == K2)
+            printf("YES\n");
+        else
+            printf("NO\n");
     }
-    else if (l1 == l2)
+    else 
     {
-        printf("YES");
-    }
-    else
-    {
-        printf("NO");
+        
+        if ((K2 - K1) % (v1 - v2) == 0 && (K2 - K1) / (v1 - v2) > 0)
+            printf("YES\n");
+        else
+            printf("NO\n");
     }
 }
 
@@ -30,9 +25,10 @@ int main()
     int K1, K2;
     int v1, v2;
 
+    
     scanf("%d %d %d %d", &K1, &v1, &K2, &v2);
 
-    kangaro(K1, v1, K2, v2);
+    kangaroo(K1, v1, K2, v2);
 
     return 0;
 }
