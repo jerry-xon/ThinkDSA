@@ -13,7 +13,7 @@ void add_at_pos(struct node *head ,int data, int pos){
     ptr2->link = NULL;
 
     pos--;
-    while(pos != 1){
+    while(pos != 0){
         ptr = ptr->link;
         pos--;
     }
