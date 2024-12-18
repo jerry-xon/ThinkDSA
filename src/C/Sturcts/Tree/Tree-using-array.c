@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 10 // Maximum size of the array (tree)
+#define MAX 10 
 
-// Function to insert a node in the tree
+
 void insert(int tree[], int key, int index) {
     if (index >= MAX) {
         printf("Tree is full, cannot insert %d\n", key);
@@ -17,33 +17,32 @@ void insert(int tree[], int key, int index) {
     printf("Inserted %d at index %d\n", key, index);
 }
 
-// Function to delete a node from the tree
+
 void deleteNode(int tree[], int index) {
     if (index >= MAX || tree[index] == -1) {
         printf("No node exists at index %d!\n", index);
         return;
     }
     printf("Deleted node with value %d from index %d\n", tree[index], index);
-    tree[index] = -1;  // Set the node value to -1 (indicating empty)
+    tree[index] = -1;
 }
 
-// Function to display the tree in array form
+
 void display(int tree[], int size) {
     printf("Tree represented in array form:\n");
     for (int i = 0; i < size; i++) {
-        if (tree[i] != -1)  // Ignore empty spots
+        if (tree[i] != -1)
             printf("%d ", tree[i]);
         else
-            printf("_ ");  // Represent empty spot
+            printf("_ "); 
     }
     printf("\n");
 }
 
-// Main menu-driven function
+
 int main() {
     int tree[MAX];
-    
-    // Initialize the tree array with -1 (representing empty nodes)
+  
     for (int i = 0; i < MAX; i++) {
         tree[i] = -1;
     }
@@ -51,7 +50,7 @@ int main() {
     int choice, value, index;
 
     while (1) {
-        // Menu
+      
         printf("\nMenu:\n");
         printf("1. Add new node\n");
         printf("2. Delete a node\n");
@@ -61,7 +60,7 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1:  // Add new node
+            case 1:  
                 printf("Enter value to insert: ");
                 scanf("%d", &value);
                 printf("Enter index to insert the value (starting from 0): ");
@@ -69,19 +68,19 @@ int main() {
                 insert(tree, value, index);
                 break;
 
-            case 2:  // Delete a node
+            case 2:  
                 printf("Enter index of the node to delete: ");
                 scanf("%d", &index);
                 deleteNode(tree, index);
                 break;
 
-            case 3:  // Display the tree
+            case 3: 
                 printf("Enter number of elements to display (up to %d): ",MAX);
-                scanf("%d", &index);  // Use 'index' to determine the display size
+                scanf("%d", &index);  
                 display(tree, index);
                 break;
 
-            case 4:  // Exit
+            case 4:
                 printf("Exiting...\n");
                 exit(0);
 
