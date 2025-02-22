@@ -69,6 +69,7 @@ void strassen(int A[SIZE][SIZE], int B[SIZE][SIZE], int C[SIZE][SIZE]) {
     addMatrix(B21, B22, temp2);
     strassen(temp1, temp2, V);
     
+    // Final Computation
     addMatrix(P, S, temp1);
     subMatrix(temp1, T, temp2);
     addMatrix(temp2, V, C11);
